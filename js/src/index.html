@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ТИ_ндер</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container">
+    <div class="center-container">
+
+        <div class="main-font" style="margin-bottom: 2rem; margin-top: 1rem">ТІ-nder</div>
+
+        <div class="container panel panel-default" style="width: 50%; background-color: #fafdff">
+            <div class="card-heading">About me</div>
+            <form id="profile" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Name:</label>
+                    <div class="col-sm-10"><input class="form-control" type="text" placeholder="Name" id="name"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="height">Height:</label>
+                    <div class="col-sm-10"><input class="form-control" type="number" placeholder="170" id="height">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="age">Age:</label>
+                    <div class="col-sm-10"><input class="form-control" type="number" placeholder="18" id="age"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="place">Favorite place:</label>
+                    <div class="col-sm-10"><select class="form-control" form="profile" id="place">
+                        <option value="football">Football</option>
+                        <option value="bar">Bar</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="theatre">Theatre</option>
+                        <option value="park">Park</option>
+                    </select></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="hobby">Hobby:</label>
+                    <div class="col-sm-10"><select class="form-control" form="profile" id="hobby">
+                        <option value="extreme_sport">Extreme_sport</option>
+                        <option value="sport">Sport</option>
+                        <option value="leisure">Leisure</option>
+                        <option value="passive_rest">Passive_rest</option>
+                        <option value="self-development">Self-development</option>
+                        <option value="meditations">Meditations</option>
+                    </select></div>
+                </div>
+
+                <label for="isMen" class="control-label" style="margin-left: 1rem; margin-bottom: 2rem"><input
+                        type="checkbox" id="isMen"> is Men ?</label>
+                <button style="margin-left: 1rem; margin-bottom: 2rem" class="btn btn-info" type="button"
+                        onclick="register()">register
+                </button>
+            </form>
+        </div>
+
+        <!--  ----  -->
+
+        <div onclick="question()" class="second-font" style="cursor: pointer; margin-bottom: 1em;">Get question</div>
+
+        <div class="container" style="width: 70%; visibility: hidden" id="questionC">
+            <div class="col-sm-6">
+                <div class="container panel panel-default" style="width: 90%; background-color: #fafdff">
+                    <div class="card-heading">This ?<button type="button" class="btn btn-link" onclick='order(">")'>👍</button></div>
+                    <div style="font-weight: bold">
+                        <div class="row"><div class="col-sm-2">Age:</div><div class="col-sm-10"><p id="lAge"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Height:</div><div class="col-sm-10"><p id="lHeight"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Place:</div><div class="col-sm-10"><p id="lPlace"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Hobby:</div><div class="col-sm-10"><p id="lHobby"></p></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="container panel panel-default" style="width: 90%; background-color: #fafdff">
+                    <div class="card-heading">This ?<button type="button" class="btn btn-link" onclick='order("<")'>👍</button></div>
+                    <div style="font-weight: bold">
+                        <div class="row"><div class="col-sm-2">Age:</div><div class="col-sm-10"><p id="rAge"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Height:</div><div class="col-sm-10"><p id="rHeight"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Place:</div><div class="col-sm-10"><p id="rPlace"></p></div></div>
+                        <div class="row"><div class="col-sm-2">Hobby:</div><div class="col-sm-10"><p id="rHobby"></p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div onclick="myMate()" class="second-font" style="cursor: pointer; margin-bottom: 1em; visibility: hidden" id="matchText">Match me!</div>
+
+        <div class="container" style="width: 40%; margin-bottom: 5rem; visibility: hidden" id="match">
+            <div class="container panel panel-default" style="width: 90%; background-color: #fafdff">
+                <div class="card-heading" id="mName"></div>
+                <div style="font-weight: bold">
+                    <div class="row"><div class="col-sm-2">Age:</div><div class="col-sm-10"><p id="mAge"></p></div></div>
+                    <div class="row"><div class="col-sm-2">Height:</div><div class="col-sm-10"><p id="mHeight"></p></div></div>
+                    <div class="row"><div class="col-sm-2">Place:</div><div class="col-sm-10"><p id="mPlace"></p></div></div>
+                    <div class="row"><div class="col-sm-2">Hobby:</div><div class="col-sm-10"><p id="mHobby"></p></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.main-font {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+}
+
+.second-font {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-heading {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    width: 10rem;
+    margin: 0.5em auto 1em auto;
+}
